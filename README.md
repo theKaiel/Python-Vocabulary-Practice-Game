@@ -12,3 +12,8 @@ A simple game to practice vocabulary words by selecting the correct meaning (in 
     - weight = 0: randomly choosed
     - weight = 1: must choosed
   - Start the game
+
+- Reference
+
+  - Color palette: https://www.canva.com/colors/color-palettes/rosy-dew/
+  - Vocabulary: https://sites.google.com/a/ms2.cdjh.hc.edu.tw/english2012/
