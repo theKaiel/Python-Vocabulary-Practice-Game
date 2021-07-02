@@ -8,7 +8,7 @@ A simple game to practice vocabulary words by selecting the correct meaning (in 
 
 - Interaction Flows
 
-  - Record vocabulary and its part of speech, meaning, and weight in a comma-separated values file(.csv) under the directory named "vocab"
+  - Record vocabulary and its part of speech, meaning, and weight in a CSV file(.csv) under the directory named "vocab"
     - weight = 0: randomly choosed
     - weight = 1: must choosed
   - Start the game
