@@ -25,7 +25,7 @@ class VP_GUI():
         global bgcolor, choice_bgcolor
 
         # questions setting
-        self.extract_rate = 0.2
+        self.extract_rate = 0.5
         self.choice_num = 5
 
         # window = top + middle + bottom
@@ -120,9 +120,10 @@ class VP_GUI():
             answers_list = {"(" + df.iloc[qindex, 1] + ".) " + df.iloc[qindex, 2]}
             while (len(answers_list) < self.choice_num):
                 rn = int(randint(0, len(df), 1))
-                if (df.iloc[rn, 1] != df.iloc[qindex, 1] or (
-                        df.iloc[rn, 2] not in df.iloc[qindex, 2] and df.iloc[qindex, 2] not in df.iloc[rn, 2])):
-                    answers_list.add("(" + df.iloc[rn, 1] + ".) " + df.iloc[rn, 2])
+                if (df.iloc[rn, 0] != df.iloc[qindex, 0]):
+                    if (df.iloc[rn, 1] != df.iloc[qindex, 1] or (
+                            df.iloc[rn, 2] not in df.iloc[qindex, 2] and df.iloc[qindex, 2] not in df.iloc[rn, 2])):
+                        answers_list.add("(" + df.iloc[rn, 1] + ".) " + df.iloc[rn, 2])
             answers_list = list(answers_list)
             shuffle(answers_list)
             self.choice_dict[qindex] = answers_list
@@ -179,7 +180,7 @@ class VP_GUI():
 
         # wrong vocab
         if self.incorrect > 0:
-            time_format = ctime(time() + 25200).split(' ')
+            time_format = ctime(time()).split(' ')
             time_format[4] = sub(':', '', time_format[4])
             filename = time_format[1] + time_format[3] + time_format[5] + "-" + time_format[4] + ".txt"
             wrong_record_file=open("history\\"+filename,"w")
