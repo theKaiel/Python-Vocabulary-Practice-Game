@@ -14,7 +14,7 @@ from re import sub
 bgcolor = "#F9F1F0"
 choice_bgcolor = "#FACCC9"
 window = Tk()
-window.title("Chatroom")
+window.title("Vocabulary Practice")
 window.geometry("400x320")
 window.configure(bg=bgcolor)
 #######################################################################################
@@ -25,8 +25,8 @@ class VP_GUI():
         global bgcolor, choice_bgcolor
 
         # questions setting
-        self.extract_rate = 0.5
-        self.choice_num =  5
+        self.extract_rate = 0.2
+        self.choice_num = 5
 
         # window = top + middle + bottom
         self.top_frame = Frame(parent, height=40, width=400, bg=bgcolor)
