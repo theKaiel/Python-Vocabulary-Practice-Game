@@ -12,7 +12,7 @@ A simple game to practice vocabulary words by selecting the correct meaning of t
     - weight = 0: randomly choosed
     - weight = 1: must choosed
   - Start the game
-  - If there're any wrong answers, the vocabulary word will be record in a text file(.txt) under the "history" directory
+  - If there're any wrong answers, the vocabulary words will be displayed on the score page and recorded in a text file(.txt) under the "history" directory
 
 - Reference
 
