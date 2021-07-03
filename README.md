@@ -1,5 +1,5 @@
 # Vocabulary Practicing Game
-A simple game to practice vocabulary words by selecting the correct meaning (in Chinese) of the given word (in English).
+A simple game to practice vocabulary words by selecting the correct meaning of the given word.
 
 - Python GUI
 
