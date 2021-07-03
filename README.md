@@ -22,5 +22,5 @@ A simple game to practice vocabulary words by selecting the correct meaning (in 
 - Manual: User should put their vocabulary words in CSV files under directory "vocab" with 4 must-be-correctly-ordered columns, *vocab*, *type*, *meaning*, and *weight* before the game's started.
 
 - Some new features may be added in the future
-1. User is allowed to choose files directly before each round
-2. Another GUI for generating the CSV files
+  1. User is allowed to choose files directly before each round
+  2. Another GUI for generating the CSV files
