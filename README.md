@@ -29,7 +29,7 @@ A simple game to practice vocabulary words by selecting the correct meaning of t
   pip install numpy
   ```
 
-- Demo video https://youtu.be/5rxIzEcMu1M
+- Demo video: https://youtu.be/5rxIzEcMu1M
 
 - Some new features may be added in the future
   1. User is allowed to choose files directly before each round
