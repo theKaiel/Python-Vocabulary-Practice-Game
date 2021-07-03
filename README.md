@@ -23,10 +23,11 @@ A simple game to practice vocabulary words by selecting the correct meaning of t
 - Manual: User should put their vocabulary words in CSV files under directory "vocab" with 4 must-be-correctly-ordered columns, *vocab*, *type*, *meaning*, and *weight* before the game's started.
 
 - Necessary installation
-  1. Python 3.7+ version
-  2. tkinter (pip install tk)
-  3. pandas (pip install pandas)
-  4. numpy (pip install numpy)
+  ```
+  pip install tk
+  pip install pandas
+  pip install numpy
+  ```
 
 - Some new features may be added in the future
   1. User is allowed to choose files directly before each round
