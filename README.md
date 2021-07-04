@@ -17,10 +17,13 @@ A simple game to practice vocabulary words by selecting the correct meaning of t
 - Reference
 
   - Color palette: https://www.canva.com/colors/color-palettes/rosy-dew/
-  - Vocabulary: https://sites.google.com/a/ms2.cdjh.hc.edu.tw/english2012/
+  - Vocabulary: https://sites.google.com/a/ms2.cdjh.hc.edu.tw/english2012/, http://download.bestdaylong.com/f675.htm
 
 ## Version 1.0
 - Manual: User should put their vocabulary words in CSV files under directory "vocab" with 4 must-be-correctly-ordered columns, *vocab*, *type*, *meaning*, and *weight* before the game's started.
+
+- Extracting rate: 0.5
+- Number of choices: 5
 
 - Necessary installation
   ```
