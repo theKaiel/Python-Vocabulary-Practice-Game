@@ -3,6 +3,7 @@ from tkinter.scrolledtext import ScrolledText
 from tkinter import BOTTOM, TOP, LEFT, RIGHT, END
 from tkinter.font import Font as tkfont
 from tkinter.font import BOLD, ITALIC
+from tkinter.filedialog import askopenfilenames
 from pandas import read_csv, concat
 from time import time, ctime
 from numpy.random import seed, randint, shuffle
@@ -58,6 +59,9 @@ class VP_GUI():
 
         self.readCsv()
         self.newRound()
+
+    def getCsvPath(self):
+        files = askopenfilenames(filetypes=[("CSV Files", ".csv")])
 
     def readCsv(self):
         self.vocab_csv_dir = listdir("vocab")
@@ -183,7 +187,7 @@ class VP_GUI():
             time_format = ctime(time()).split(' ')
             time_format[4] = sub(':', '', time_format[4])
             filename = time_format[1] + time_format[3] + time_format[5] + "-" + time_format[4] + ".txt"
-            wrong_record_file=open("history\\"+filename,"w")
+            wrong_record_file=open("history\\"+filename,"w",encoding='utf8')
             for vocab in self.incorrect_list:
                 self.txtbox_wrong.insert(END, vocab+'\n')
                 wrong_record_file.write(vocab+'\n')
