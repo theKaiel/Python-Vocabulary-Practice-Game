@@ -56,18 +56,22 @@ class VP_GUI():
                                 bg=bgcolor)
         self.btn_nextRound = Button(self.botton_frame, text="Next round", command=self.newRound,
                                     font=font_btn, bg=choice_bgcolor, borderwidth=0)
-
         self.readCsv()
         self.newRound()
 
     def getCsvPath(self):
-        files = askopenfilenames(filetypes=[("CSV Files", ".csv")])
+        while (1):
+            self.filespath = list(askopenfilenames(filetypes=[("CSV Files", ".csv")]))
+            if (len(self.filespath) > 0): break
 
     def readCsv(self):
-        self.vocab_csv_dir = listdir("vocab")
+        self.getCsvPath()
+        #self.vocab_csv_dir = listdir("vocab")
         self.vocab_df_list = []
-        for filename in self.vocab_csv_dir:
-            self.vocab_df_list.append(read_csv("vocab\\" + filename))
+        '''for filename in self.vocab_csv_dir:
+            self.vocab_df_list.append(read_csv("vocab\\" + filename))'''
+        for filename in self.filespath:
+            self.vocab_df_list.append(read_csv(filename))
         self.vocab_df = concat(self.vocab_df_list, ignore_index=True)
 
     def packUI(self):
@@ -125,8 +129,7 @@ class VP_GUI():
             while (len(answers_list) < self.choice_num):
                 rn = int(randint(0, len(df), 1))
                 if (df.iloc[rn, 0] != df.iloc[qindex, 0]):
-                    if (df.iloc[rn, 1] != df.iloc[qindex, 1] or (
-                            df.iloc[rn, 2] not in df.iloc[qindex, 2] and df.iloc[qindex, 2] not in df.iloc[rn, 2])):
+                    if (df.iloc[rn, 1] != df.iloc[qindex, 1] or not self.checkSym(df.iloc[rn, 2], df.iloc[qindex, 2])):
                         answers_list.add("(" + df.iloc[rn, 1] + ".) " + df.iloc[rn, 2])
             answers_list = list(answers_list)
             shuffle(answers_list)
@@ -184,9 +187,11 @@ class VP_GUI():
 
         # wrong vocab
         if self.incorrect > 0:
+            monthdic = {"Mon": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07",
+                        "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
             time_format = ctime(time()).split(' ')
-            time_format[4] = sub(':', '', time_format[4])
-            filename = time_format[1] + time_format[3] + time_format[5] + "-" + time_format[4] + ".txt"
+            time_format[3] = sub(':', '', time_format[3])
+            filename = time_format[4][2:] + monthdic[time_format[1]] + time_format[2] + "-" + time_format[3] + ".txt"
             wrong_record_file=open("history\\"+filename,"w",encoding='utf8')
             for vocab in self.incorrect_list:
                 self.txtbox_wrong.insert(END, vocab+'\n')
@@ -205,6 +210,13 @@ class VP_GUI():
             self.txt_wrong.pack(side=TOP)
             self.txtbox_wrong.pack(side=TOP)
         self.btn_nextRound.pack(side=BOTTOM)
+
+    def checkSym(self, voc1, voc2):
+        list1, list2 = voc1.split('、'), voc2.split('、')
+        for i in list1:
+            for j in list2:
+                if (i == j): return False
+        return True
 
 
 # font / credit########################################################################
