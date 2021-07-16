@@ -37,6 +37,7 @@ A simple game to practice vocabulary words by selecting the correct meaning of t
 - Some new features may be added in the future version
   1. ~~User is allowed to choose files directly before each round~~ __Done in Version 1.2.__
   2. Another GUI for generating the CSV files
+  3. Able to be run on Android
 
 ### Version 1.1
 - update: vocabulary words and meanings in all languages are supported.
